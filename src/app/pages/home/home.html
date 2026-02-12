@@ -1,0 +1,52 @@
+<div
+  class="relative flex flex-col items-center justify-center min-h-screen bg-[url('/background.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden">
+
+  <p-toast position="top-right" class="flex justify-center w-full"/>
+  <div
+    class="mb-4 p-8 flex items-center justify-center bg-white/80 backdrop-blur-xl rounded-[28px] shadow-2xl relative z-10">
+    <p-card [ngStyle]="{'background': 'transparent', 'box-shadow': 'none', 'border': 'none'}">
+      <ng-template #header>
+        <img alt="Card" class="w-full" src="snoopy-shy.jpeg" />
+      </ng-template>
+
+      <ng-template #title>
+        <h1 class="text-3xl md:text-4xl mt-4 text-center text-neutral-600">Will you be my valentines?</h1>
+      </ng-template>
+
+      <ng-template #subtitle>
+        <p class="text-center text-xl md:text-3xl">👉👈</p>
+      </ng-template>
+
+      <ng-template #footer>
+        <div class="flex justify-center items-center">
+          <div class="flex pt-4 space-x-4 relative">
+
+            <button type="button" routerLink="/yes"
+              class="bg-red-900 text-white px-4 py-2 rounded-lg hover:bg-red-600 cursor-pointer">
+              <span class="text-2xl md:text-3xl">Yes</span>
+            </button>
+
+            @if (!noGone) {
+            <button (mouseenter)="onNoHover($event)" [class.no-poofing]="noPoofing"
+              class="bg-red-900 text-white px-4 py-2 rounded-lg cursor-pointer select-none">
+              <span class="text-2xl md:text-3xl">No</span>
+            </button>
+            }
+
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+
+  @if (showSmoke) {
+  <div class="smoke-burst" [style.left.px]="smokeX" [style.top.px]="smokeY" aria-hidden="true">
+    <span class="puff p1"></span>
+    <span class="puff p2"></span>
+    <span class="puff p3"></span>
+    <span class="puff p4"></span>
+    <span class="puff p5"></span>
+    <span class="puff p6"></span>
+  </div>
+  }
+</div>

@@ -1,0 +1,39 @@
+.fireworks {
+position: absolute;
+inset: 0;
+pointer-events: none;
+overflow: hidden;
+}
+
+.burst {
+position: absolute;
+width: 6px;
+height: 6px;
+border-radius: 50%;
+animation: explode 1.8s infinite ease-out;
+box-shadow:
+0 -36px 0 0 #ff2d95,
+25px -25px 0 0 #ffe66d,
+36px 0 0 0 #00f5d4,
+25px 25px 0 0 #4cc9f0,
+0 36px 0 0 #c77dff,
+-25px 25px 0 0 #ffb703,
+-36px 0 0 0 #ff006e,
+-25px -25px 0 0 #72ef36;
+transform: translate(-50%, -50%) scale(0.2);
+}
+
+.b1 { top: 20%; left: 25%; animation-delay: 0s; }
+.b2 { top: 30%; left: 70%; animation-delay: 0.4s; }
+.b3 { top: 55%; left: 40%; animation-delay: 0.8s; }
+.b4 { top: 65%; left: 80%; animation-delay: 1.2s; }
+.b5 { top: 15%; left: 55%; animation-delay: 1.6s; }
+.b6 { top: 45%; left: 15%; animation-delay: 0.2s; }
+.b7 { top: 75%; left: 55%; animation-delay: 0.6s; }
+.b8 { top: 40%; left: 90%; animation-delay: 1.4s; }
+
+@keyframes explode {
+0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+30% { opacity: 1; }
+100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}

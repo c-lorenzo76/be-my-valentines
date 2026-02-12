@@ -1,0 +1,60 @@
+/* A little smoke burst that expands + fades */
+
+.smoke-burst {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+}
+
+.puff {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: rgba(120, 120, 120, 0.55);
+  filter: blur(0.6px);
+  animation: puff 700ms ease-out forwards;
+}
+
+/* Different directions/sizes so it looks like a poof */
+.p1 { animation-delay: 0ms;  }
+.p2 { animation-delay: 20ms; }
+.p3 { animation-delay: 40ms; }
+.p4 { animation-delay: 60ms; }
+.p5 { animation-delay: 80ms; }
+.p6 { animation-delay: 100ms; }
+
+.p2 { --dx:  18px; --dy: -18px; --s: 2.4; }
+.p1 { --dx: -22px; --dy: -10px; --s: 2.8; }
+.p3 { --dx:  26px; --dy:  6px;  --s: 2.6; }
+.p4 { --dx: -14px; --dy:  20px; --s: 2.2; }
+.p5 { --dx:  6px;  --dy:  26px; --s: 2.0; }
+.p6 { --dx: -28px; --dy:  4px;  --s: 2.5; }
+
+@keyframes puff {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(var(--dx, 0), var(--dy, -20px)) scale(var(--s, 2.4));
+    opacity: 0;
+  }
+}
+
+/* Button poof: quick pop + fade + tiny shake */
+.no-poofing {
+  animation: btnPoof 120ms ease-out forwards;
+}
+
+@keyframes btnPoof {
+  0%   { transform: scale(1) rotate(0deg); opacity: 1; }
+  40%  { transform: scale(1.08) rotate(-2deg); opacity: 0.95; }
+  70%  { transform: scale(0.92) rotate(2deg); opacity: 0.65; }
+  100% { transform: scale(0.6) rotate(0deg); opacity: 0; }
+}
