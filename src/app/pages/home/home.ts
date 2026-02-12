@@ -11,7 +11,7 @@ import { MessageService } from 'primeng/api';
     CommonModule,
     CardModule,
     RouterLink,
-    ToastModule
+    ToastModule, 
   ],
   providers: [MessageService],
   templateUrl: './home.html',
